@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap"
+            rel="stylesheet"
+    />
+</head>
+<body>
+
+<div class="navbar">
+    <div class="navbar-logo">Auto Arcade</div>
+    <ul>
+        <li><a th:href="@{/register}">Sign Up</a></li>
+        <li><a th:href="@{/login}">Login</a></li>
+        <li><a th:href="@{/productspage}">Products</a></li>
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/products}">Admin</a></li>
+    </ul>
+</div>
+<div class="container">
+    <h1>Welcome to the Auto Arcade!</h1>
+    <form th:action="@{/login}" method="post">
+        <h1>Login</h1>
+        <label for="email"></label>
+        <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                title="Enter a valid email"
+        />
+
+        <label for="password"></label>
+        <input
+                type="password"
+                name="password"
+                placeholder="password"
+                required
+                pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}"
+                title="Password must be 8-20 characters long, include at least one letter and one number"
+        />
+        <br />
+        <button>Enter</button>
+    </form>
+
+    <script type="module" src="../js/navbar.js"></script>
+</div>
+</body>
+</html>

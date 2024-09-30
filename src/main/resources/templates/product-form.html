@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create or Edit Product</title>
+    <link rel="stylesheet" th:href="@{/css/product-form.css}" />
+</head>
+<body class="dark-theme">
+<div class="container">
+    <h1 th:if="${product.id != null}">Edit Vehicle</h1>
+    <h1 th:if="${product.id == null}">Create Vehicle</h1>
+
+    <form th:action="@{/products/save}" th:object="${product}" method="post" class="product-form">
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="form-group">
+            <label for="make">Make:</label>
+            <input type="text" th:field="*{make}" id="make" placeholder="Enter vehicle make" />
+        </div>
+
+        <div class="form-group">
+            <label for="model">Model:</label>
+            <input type="text" th:field="*{model}" id="model" placeholder="Enter vehicle model" />
+        </div>
+
+        <div class="form-group">
+            <label for="trim">Trim:</label>
+            <input type="text" th:field="*{trim}" id="trim" placeholder="Enter vehicle trim" />
+        </div>
+
+        <div class="form-group">
+            <label for="imgUrl">Image URL:</label>
+            <input type="text" th:field="*{imgUrl}" id="imgUrl" placeholder="Enter image URL" />
+        </div>
+
+
+
+
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" step="0.01" th:field="*{price}" id="price" placeholder="Enter price" />
+        </div>
+
+
+        <button type="submit" class="submit-button">Save</button>
+    </form>
+
+    <a href="/products" class="back-button">Back to Product List</a>
+</div>
+</body>
+</html>
